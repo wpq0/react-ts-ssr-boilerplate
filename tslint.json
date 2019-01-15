@@ -1,0 +1,11 @@
+{
+    "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+    "jsRules": {},
+    "rules": {
+        "max-classes-per-file": false,
+        "no-console": false,
+        "only-arrow-functions": false,
+        "no-var-requires": false
+    },
+    "rulesDirectory": []
+}

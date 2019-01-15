@@ -1,0 +1,18 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "useBuiltIns": "entry"
+            }
+        ],
+        "@babel/preset-react",
+        "@babel/preset-typescript",
+        "linaria/babel"
+    ],
+    "plugins": [
+        "react-hot-loader/babel",
+        "@babel/plugin-proposal-class-properties",
+        "@babel/plugin-syntax-dynamic-import"
+    ]
+}
