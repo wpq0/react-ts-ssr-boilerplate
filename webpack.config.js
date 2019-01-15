@@ -11,7 +11,7 @@ module.exports = () => {
     const isDev = process.env.NODE_ENV === 'development';
     return {
         mode: isProd ? 'production' : 'development',
-        entry: './src/index.tsx',
+        entry: './src/client/index.tsx',
         output: {
             path: path.join(__dirname, 'dist'),
             filename: 'app.[hash:8].js',
@@ -79,7 +79,7 @@ module.exports = () => {
         },
         plugins: [
             new HtmlWebpackPlugin({
-                template: './src/index.html',
+                template: './src/shared/public/index.html',
                 title: 'Typescript - Webpack Boilerplate',
             }),
             new ForkTsCheckerWebpackPlugin({

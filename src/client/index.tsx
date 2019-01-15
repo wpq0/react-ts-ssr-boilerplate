@@ -1,9 +1,8 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
-import DefaultErrorBoundary from './_utils/DefaultErrorBoundary';
-import App from './App';
-// import { makeFactories } from './_utils/fn';
+import DefaultErrorBoundary from '../shared/_utils/DefaultErrorBoundary';
+import App from '../shared/app/App';
 
 if (process.env.NODE_ENV === 'development') {
     const axe = require('react-axe');
