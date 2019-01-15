@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
         "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
         "target": "esnext",
         "lib": ["dom", "dom.iterable", "esnext"],
         "allowJs": true,
@@ -14,6 +15,6 @@
         "experimentalDecorators": true,
         "jsx": "react"
     },
-    "include": ["src/**/*"],
+    "include": ["src/shared/**/*", "src/client/**.*"],
     "exclude": ["dist", "node_modules"]
 }
