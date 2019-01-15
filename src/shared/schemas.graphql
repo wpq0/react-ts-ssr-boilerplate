@@ -1,0 +1,7 @@
+type Employee {
+    name: String
+}
+
+type Query {
+    hello: String
+}

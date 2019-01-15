@@ -1,5 +1,4 @@
 const path = require('path');
-const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
@@ -10,14 +9,19 @@ module.exports = () => {
     const isProd = process.env.NODE_ENV === 'production';
     const isDev = process.env.NODE_ENV === 'development';
     return {
+        name: 'client',
+        target: 'web',
         mode: isProd ? 'production' : 'development',
-        entry: './src/client/index.tsx',
+        entry: {
+            app: './src/client/index.tsx',
+        },
         output: {
             path: path.join(__dirname, 'dist'),
-            filename: 'app.[hash:8].js',
+            filename: '[name].[hash:8].js',
+            chunkFilename: '[name].[chunkhash:8].chunk.js',
         },
         resolve: {
-            extensions: ['.ts', '.tsx', '.js', 'jsx', '.json'],
+            extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
         },
         module: {
             rules: [
@@ -87,7 +91,10 @@ module.exports = () => {
                 tslint: true,
                 watch: ['./src'],
             }),
-            new MiniCssExtractionPlugin({}),
+            new MiniCssExtractionPlugin({
+                filename: isDev ? '[name].css' : '[name].[contenthash:8].css',
+                chunkFilename: isDev ? '[id].css' : '[id].[contenthash:8].css',
+            }),
             new BundleAnalyzerPlugin({
                 analyzerMode: 'static',
                 openAnalyzer: false,

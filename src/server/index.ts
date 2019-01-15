@@ -12,7 +12,7 @@ router.get('/', async ctx => {
     ctx.response.body = 'heheh';
     ctx.response.type = 'text/html';
 });
-console.log(apolloServer.graphqlPath);
+
 app.use(router.routes())
     .use(router.allowedMethods())
     .listen(port);
