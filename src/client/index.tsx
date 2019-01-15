@@ -1,5 +1,5 @@
-import * as React from 'react';
-import * as ReactDom from 'react-dom';
+import React from 'react';
+import ReactDom, { hydrate } from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import DefaultErrorBoundary from '../shared/_utils/DefaultErrorBoundary';
 import App from '../shared/app/App';
@@ -9,7 +9,7 @@ if (process.env.NODE_ENV === 'development') {
     axe(React, ReactDom, 1000);
 }
 
-ReactDom.render(
+hydrate(
     <React.StrictMode>
         <DefaultErrorBoundary>
             <Router>
