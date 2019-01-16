@@ -15,6 +15,8 @@ const header = css`
 
 // TODO: centralize states
 // TODO: styling
+// TODO: redux
+// TODO: suspense & lazy
 class App extends React.Component {
     public render() {
         return (

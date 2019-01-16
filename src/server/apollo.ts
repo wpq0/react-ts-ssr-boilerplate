@@ -3,7 +3,6 @@ const typeDefs = require('../shared/schemas.graphql');
 
 const resolvers = {
     Query: {
-        hello: () => 'Hello world!',
         employees: () => [
             {
                 name: 'abc',
@@ -12,6 +11,10 @@ const resolvers = {
             {
                 name: 'def',
                 age: 13,
+            },
+            {
+                name: 'ghi',
+                age: 14,
             },
         ],
     },

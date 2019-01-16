@@ -1,4 +1,4 @@
-const path = require('path');
+const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 const paths = require('./paths');
 const { extensions, modulePaths } = require('./resolvers');
@@ -31,7 +31,12 @@ module.exports = () => {
             extensions: extensions,
             modules: modulePaths,
         },
-        plugins: [miniCssExtraction],
+        plugins: [
+            miniCssExtraction,
+            new webpack.DefinePlugin({
+                __SERVER__: true,
+            }),
+        ],
         devtool: 'source-map',
     };
 };

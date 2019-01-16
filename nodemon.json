@@ -1,0 +1,6 @@
+{
+    "verbose": true,
+    "ignore": ["*.spec.ts", "node_modules"],
+    "watch": ["./src/server/", "./dist/client/"],
+    "ext": "ts,tsx,js,jsx,json"
+}

@@ -14,6 +14,7 @@ const {
     bundleAnalyzer,
 } = require('./plugins');
 const TerserPlugin = require('terser-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
 
 module.exports = () => {
     const isProd = process.env.NODE_ENV === 'production';
@@ -45,7 +46,13 @@ module.exports = () => {
                 },
             ],
         },
-        plugins: [html, forkTsChecker, miniCssExtraction, bundleAnalyzer],
+        plugins: [
+            html,
+            forkTsChecker,
+            miniCssExtraction,
+            bundleAnalyzer,
+            new ManifestPlugin({ fileName: 'manifest.json' }),
+        ],
         optimization: {
             minimizer: [
                 new TerserPlugin({
